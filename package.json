@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --port 3000",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "servi": "vue-cli-service --inline --port 3000 --host 172.31.160.1 --content-base"
   },
   "dependencies": {
     "@vuelidate/core": "^2.0.2",
