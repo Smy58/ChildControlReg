@@ -1,7 +1,7 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 
-const link = 'http://192.168.2.78:8081/save'
+const link = 'https://192.168.2.78:8081/save'
 
 export default createStore({
   state: {
