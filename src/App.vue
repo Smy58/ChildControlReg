@@ -1,30 +1,54 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+    <MainForm :setPreloaderActive="setPreloaderActive" :setPreloaderUnActive="setPreloaderUnActive"/>
+    <Preloader :isActive='isLoad'/>
 </template>
 
-<style lang="scss">
+<script>
+    import MainForm from './components/MainForm.vue'
+    import Preloader from './components/Preloader.vue'
+
+
+    export default {
+        name: 'App',
+        components: {
+            MainForm,
+            Preloader
+        },
+        data() {
+            return {
+                isLoad: false
+
+            }
+        },
+        methods: {
+            setPreloaderActive() {
+                this.isLoad = true;
+                console.log('preloaderStatus: ' + this.isLoad)
+            },
+            setPreloaderUnActive() {
+                this.isLoad = false;
+                console.log('preloaderStatus: ' + this.isLoad)
+
+            }
+        }
+
+    }
+</script>
+
+<style>
+@import url(./assets/fonts/Inter/stylesheet.css);
+@import url(./assets/fonts/Golos/stylesheet.css);
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  width: 100%;
 }
 
-nav {
-  padding: 30px;
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  align-items: center;
 }
 </style>
